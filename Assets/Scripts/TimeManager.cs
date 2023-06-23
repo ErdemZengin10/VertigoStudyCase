@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    //For delay operations.
     #region Instance Method //Singleton
 
     public static TimeManager Instance;

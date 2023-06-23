@@ -73,6 +73,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (var image in wheelImageList)
         {
+            //Iterates each image for setting.
             
             
             image.GetComponent<ImageSliceScript>().image.sprite = imageList[i];
@@ -89,6 +90,7 @@ public class UIManager : MonoBehaviour
     public void SetIndicator(Sprite indicator)
     {
         wheelIndicator.GetComponent<Image>().sprite = indicator;
+        
 
     }
 
@@ -99,6 +101,8 @@ public class UIManager : MonoBehaviour
 
     public void DeclareSpritesFromAtlas()
     {
+        
+        //Getting sprites from atlas.
         bronzeIndicator = spriteAtlas.GetSprite("ui_spin_bronze_indicator");
         silverIndicator = spriteAtlas.GetSprite("ui_spin_silver_indicator");
         goldIndicator = spriteAtlas.GetSprite("ui_spin_golden_indicator");

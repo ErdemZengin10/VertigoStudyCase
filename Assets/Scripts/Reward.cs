@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Reward
 {
+    //reward class
    
     public Sprite baseSprite;
     public int baseAmount;

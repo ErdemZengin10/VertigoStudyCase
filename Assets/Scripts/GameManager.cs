@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void CheckSpinCount()
-    {
+    { //using mod operation to understand gold or silver spin.
         PanelWheelScaler();
         if (spinCount % 5 == 0)
         {
@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void FireRaycast()
     {
+        //mouse click options for UI
         if (Input.GetMouseButtonDown(0))
         {
             // Create a new PointerEventData and set its position to the mouse position
@@ -137,10 +138,13 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.SetIndicator(indicatorSprite);
         UIManager.Instance.SetWheel(wheelSprite);
         
+        //Sets lists to slices and changing UI elements.
+        
     }
 
     public void ResetGame()
     {
+        //resets game
         UIManager.Instance.retryButton.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
         UIManager.Instance.deathScreen.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.OutBack);
         UIManager.Instance.mainText.GetComponent<TextMeshProUGUI>().text = "";
@@ -171,6 +175,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetTMP()
     {
+        //resets textmesh
         foreach (var image in UIManager.Instance.wheelImageList)
         {
             image.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "x2";
@@ -180,6 +185,8 @@ public class GameManager : MonoBehaviour
 
     public void SetTMP()
     {
+        
+        //sets textmesh
         foreach (var image in UIManager.Instance.wheelImageList)
         {
             if (image.GetComponent<ImageSliceScript>().image.sprite.name == "ui_card_icon_death")

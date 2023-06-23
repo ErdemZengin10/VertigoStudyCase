@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Assets/Settings/WheelSettings")]
 public class WheelSettings : ScriptableObject
 {
+    //for wheel settings
     [SerializeField] private float _rotatePower;
     [SerializeField] private float _stopPower;
 

@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class WheelScript : MonoBehaviour
 {
-
-     public WheelSettings wheelSettings;
+     //Scriptable Object for wheel settings
+    public WheelSettings wheelSettings;
    
     public GameObject currentReward;
 
@@ -53,6 +53,7 @@ public class WheelScript : MonoBehaviour
     {
         if(inRotate == 0)
         {
+            //wheel rotation
             rbody.AddTorque(wheelSettings.RotatePower);
             inRotate = 1;
         }
@@ -62,11 +63,12 @@ public class WheelScript : MonoBehaviour
 
     public void GetReward()
     {
+        //using angles to understand which part user land.
         float rot = transform.eulerAngles.z;
 
         if (rot > 0+22 && rot <= 45+22)
         {
-            transform.DORotate(new Vector3(0, 0, 45), 0.3f).SetEase(Ease.OutCubic);
+            transform.DORotate(new Vector3(0, 0, 45), 0.3f).SetEase(Ease.OutCubic); //using doTween to smooth animation.
             Win(UIManager.Instance.wheelImageList[1].GetComponent<Image>().sprite,UIManager.Instance.wheelImageList[1].GetComponent<ImageSliceScript>().amount);
             currentReward = UIManager.Instance.wheelImageList[1].gameObject;
             //1
@@ -149,8 +151,9 @@ public class WheelScript : MonoBehaviour
         }
         else
         {
+            //win condition
             TimeManager.Instance.transform.DOMoveX(1, 0.5f).OnComplete(() =>
-            { 
+            { //0.5 second delay
                 GameManager.Instance.CheckSpinCount();
              currentReward.GetComponent<ImageSliceScript>().amount *= 2;
              currentReward.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text ="x"+ currentReward.GetComponent<ImageSliceScript>().amount.ToString();
